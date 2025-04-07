@@ -157,9 +157,34 @@ npm run build
 # Run the server
 npm start
 
-# Development with live reloading
+# Development with hot reloading
 npm run dev:watch
 ```
+
+### Custom Hot Reloading
+
+This project includes a custom hot reloading setup that combines:
+
+- **nodemon**: Watches for file changes in the src directory and rebuilds TypeScript files
+- **browser-sync**: Automatically refreshes the browser when build files change
+- **Concurrent execution**: Runs both services simultaneously with output synchronization
+
+The setup is configured in:
+
+- `nodemon.json`: Controls TypeScript watching and rebuilding
+- `package.json`: Uses concurrently to run nodemon and browser-sync together
+
+To use the custom hot reloading feature:
+
+```bash
+npm run dev:watch
+```
+
+This creates a development environment where:
+
+1. TypeScript files are automatically rebuilt when changed
+2. The MCP server restarts with the updated code
+3. Connected browsers refresh to show the latest changes
 
 ### Using with MCP Inspector
 
