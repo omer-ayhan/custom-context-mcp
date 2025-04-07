@@ -1,0 +1,43 @@
+{
+	"name": "custom-context-mcp",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"type": "module",
+	"bin": {
+		"custom-context-mcp": "build/index.js"
+	},
+	"scripts": {
+		"dev": "yarn build && mcp-inspector node build/index.js",
+		"dev:watch": "concurrently \"nodemon\" \"browser-sync start --proxy localhost:6274 --files build/**/* --no-notify --port 3001 --reload-delay 1000\"",
+		"build": "tsc && chmod 755 build/index.js",
+		"check:types": "tsc --noEmit",
+		"check:lint": "eslint . --ext .ts",
+		"check": "npm run check:types && npm run check:lint",
+		"start": "node build/index.js",
+		"test:samples": "yarn build && node build/test-samples.js"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"dependencies": {
+		"@modelcontextprotocol/sdk": "^1.8.0",
+		"zod": "^3.24.2",
+		"zod-to-json-schema": "^3.24.5"
+	},
+	"devDependencies": {
+		"@modelcontextprotocol/inspector": "^0.8.1",
+		"@types/node": "^22.14.0",
+		"browser-sync": "^3.0.4",
+		"concurrently": "^9.1.2",
+		"eslint": "^9.24.0",
+		"globals": "^16.0.0",
+		"nodemon": "^3.1.9",
+		"ts-node": "^10.9.2",
+		"typescript": "^5.8.3",
+		"typescript-eslint": "^8.29.0"
+	},
+	"files": [
+		"build"
+	]
+}

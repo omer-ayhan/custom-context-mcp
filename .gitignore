@@ -1,0 +1,14 @@
+node_modules
+build
+
+.env
+.env.local
+.env.development
+.env.production
+.env.test
+.env.test.local
+.env.production.local
+
+
+yarn.lock
+package-lock.json
